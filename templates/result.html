@@ -1,6 +1,123 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta name="viewport"
+            content="width=device-width, initial-scale=1">
+    <style>
+                html,
+body {
+	background: #12c2e9; /* fallback for old browsers */
+	background: -webkit-linear-gradient(
+		to right,
+		#000000,
+		#c471ed,
+		#12c2e9
+	); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#f64f59,
+		#c471ed,
+		#12c2e9
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	min-height: 100%;
+	font-family: "Open sans", sans-serif;
+}
+        h1 {
+            color: red;
+        }
+        a {
+            color: purple;
+            text-decoration: none;
+        }
+        .card {
+            background-color: transparent;
+            width: 500px;
+            height: 500px;
+            perspective: 2000px;
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .card-front {
+            background-color: white;
+            color: black;
+        }
+        .card-back {
+            background-color: white;
+            transform: rotateY(180deg);
+        }
+
+        .button {
+          width: 140px;
+          height: 45px;
+          font-family: 'Roboto', sans-serif;
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 2.5px;
+          font-weight: 500;
+          color: #000;
+          background-color: #fff;
+          border: none;
+          border-radius: 45px;
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease 0s;
+          cursor: pointer;
+          outline: none;
+            position: relative;
+          }
+
+        .button:hover {
+          background-color: #2EE59D;
+          box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+          color: #fff;
+          transform: translateY(-7px);
+        }
+    </style>
+</head>
 <body>
-<h1> {{ prediction }}</h1>
+<center>
+<div>
+    <h2>And Your Best Offer is?</h2>
+    <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src=
+"https://yesimadesigner.com/wp-content/uploads/2020/05/refernce.jpg"
+                            style="width:500px;height:500px;">
+                </div>
+
+                <div class="card-back">
+                    <h1 align="center"> {{ prediction }}</h1>
+                    <p>
+                        For Customer {{ info }}
+                    </p>
+                    <a href="https://github.com/hpnightowl/CustomerSegmentation">
+                        Get in touch with us!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  <form action="/result" method="POST">
+      <button class="button">Get offer</button>
+  </form>
+    </div>
+    </center>
 </body>
 </html>
