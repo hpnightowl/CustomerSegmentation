@@ -1,8 +1,8 @@
 import flask
-from flask import Flask
+from flask import Flask, request
 import pandas as pd
 import pickle
-
+import random
 app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
@@ -16,6 +16,7 @@ def home():
   info = pd.read_csv('testdata/ogtestdata.csv')
   model = pickle.load(open("model/model.pkl", "rb"))
   prediction = model.predict(ps)
+  prediction = random.randint(0,3)
   if float(prediction) == 0:
     cluster = 'BOGO offers'
   elif float(prediction) == 1:

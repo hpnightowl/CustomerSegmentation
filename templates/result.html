@@ -32,7 +32,7 @@ body {
         }
         .card {
             background-color: transparent;
-            width: 500px;
+            width: 400px;
             height: 500px;
             perspective: 2000px;
         }
@@ -88,6 +88,18 @@ body {
           color: #fff;
           transform: translateY(-7px);
         }
+        input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+        	.form-control {
+	  position: relative;
+	  font-size: 12px;
+	  height: auto;
+	  padding: 5px;
+	}
+
     </style>
 </head>
 <body>
@@ -96,12 +108,33 @@ body {
     <h2>And Your Best Offer is?</h2>
     <div class="card">
             <div class="card-inner">
+
                 <div class="card-front">
                     <img src=
 "https://images.unsplash.com/photo-1565600444102-063f8a7a1e37?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=671&q=80"
-                            style="width:500px;height:500px;">
+                            style="width:400px;height:240px;">
+                <form>
+    <label for="name">StarID: </label>
+    <input type="text" class="form-control" id="id" name="id">
+    <br>
+    <label for="age">Age: </label>
+    <input type="text" class="form-control" id="age" name="Age">
+    <br>
+    <label for="gender">Gender(M/F): </label>
+    <input type="text" class="form-control" id="gender" name="Gender">
+    <br>
+    <label for="phone">Frequency of visits: </label>
+    <input type="text" class="form-control" id="fre" name="fre">
+    <br>
+    <div id="wrapper">
+    <label for="yes_no_radio">Are you existing member?</label>
+    <p>
+    <input type="radio" name="yes_no" checked>Yes</input>
+    <input type="radio" name="yes_no">No</input>
+    </p>
+    </div>
+  </form>
                 </div>
-
                 <div class="card-back">
                     <h1 align="center"> {{ prediction }}</h1>
                     <p>
